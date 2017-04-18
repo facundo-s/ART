@@ -16,9 +16,23 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
     <Button
+        android:id="@+id/assistance"
         android:layout_width="200px"
         android:layout_height="50px"
         android:layout_below="@+id/hello"
         android:text="Assist"
         android:onClick="load_assist_activity"/>
+    <Button
+        android:id="@+id/repair"
+        android:layout_width="200px"
+        android:layout_height="50px"
+        android:layout_below="@+id/assistance"
+        android:text="Repair"
+        android:onClick="load_repair_activity"/>
+    <Button
+        android:layout_width="200px"
+        android:layout_height="50px"
+        android:layout_below="@+id/repair"
+        android:text="Transportation"
+        android:onClick="load_transportation_activity"/>
 </RelativeLayout>

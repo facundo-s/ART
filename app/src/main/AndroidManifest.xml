@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Assistance"></activity>
+        <activity android:name=".Assistance" />
+        <activity android:name=".Repair" />
+        <activity android:name=".Transportation"></activity>
     </application>
 
 </manifest>

@@ -17,4 +17,14 @@ public class ART extends AppCompatActivity {
         Intent intent = new Intent(this, Assistance.class);
         startActivity(intent);
     }
+
+    public void load_repair_activity(View view) {
+        Intent intent = new Intent(this, Repair.class);
+        startActivity(intent);
+    }
+
+    public void load_transportation_activity(View view) {
+        Intent intent = new Intent(this, Transportation.class);
+        startActivity(intent);
+    }
 }
