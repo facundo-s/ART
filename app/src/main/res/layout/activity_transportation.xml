@@ -10,8 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.art.art.Transportation">
     <TextView
+        android:id="@+id/request_transportation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transportation"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/request_transportation"
+        android:text="Request"
+        android:onClick="load_done"/>
 
 </RelativeLayout>

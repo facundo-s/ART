@@ -35,4 +35,10 @@
         android:layout_below="@+id/repair"
         android:text="Transportation"
         android:onClick="load_transportation_activity"/>
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 </RelativeLayout>

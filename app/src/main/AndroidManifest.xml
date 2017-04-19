@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".Assistance" />
         <activity android:name=".Repair" />
-        <activity android:name=".Transportation"></activity>
+        <activity android:name=".Transportation" />
+
     </application>
 
 </manifest>

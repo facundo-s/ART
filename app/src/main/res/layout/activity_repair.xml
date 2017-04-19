@@ -10,8 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.art.art.Repair">
     <TextView
+        android:id="@+id/request_repair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Repair"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/request_repair"
+        android:text="Request"
+        android:onClick="load_done"/>
 
 </RelativeLayout>
