@@ -15,9 +15,14 @@ public class Assistance extends AppCompatActivity {
     }
 
     public void load_done(View view) {
+        //ART parent = (ART)getParent();
+        //parent.addToLog("Requested assistance.");
 //        TextView log = (TextView) findViewById(R.id.log);
 //        log.setText("sladffajsldh");
         //log.append("\n Assistance requested");
+        Intent result = new Intent();
+        result.putExtra("log_data", "Requested assistance.");
+        setResult(RESULT_OK, result);
         finish();
     }
 }
