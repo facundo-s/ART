@@ -43,5 +43,26 @@
             android:layout_height="wrap_content"
             android:checked="true" />
     </RadioGroup>
-
+    <TextView
+        android:id="@+id/what_u_want"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gender_selection_group"
+        android:text="What do you need assistance with?" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/what_u_want"
+        android:orientation="vertical">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/out_of_bed"
+            android:text="Getting out of bed" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bathroom"
+            android:text="Going to the bathroom" />
+    </LinearLayout>
 </RelativeLayout>
