@@ -6,6 +6,12 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.HttpURLConnection;
+
 public class ART extends AppCompatActivity {
 
     @Override
@@ -36,5 +42,21 @@ public class ART extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         addToLog(data.getCharSequenceExtra("log_data").toString());
+    }
+
+    private void loadDatabase() {
+        try {
+            URL url = new URL("http://www.android.com/");
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            try {
+                InputStream in = new BufferedInputStream(connection.getInputStream());
+            } catch (Exception e) {
+
+            } finally {
+                connection.disconnect();
+            }
+        } catch (IOException e) {
+
+        }
     }
 }

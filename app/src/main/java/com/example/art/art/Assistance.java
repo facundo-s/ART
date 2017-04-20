@@ -6,7 +6,6 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 public class Assistance extends AppCompatActivity {
 
