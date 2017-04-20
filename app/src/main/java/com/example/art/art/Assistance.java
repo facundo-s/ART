@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class Assistance extends AppCompatActivity {
@@ -21,7 +23,18 @@ public class Assistance extends AppCompatActivity {
 //        log.setText("sladffajsldh");
         //log.append("\n Assistance requested");
         Intent result = new Intent();
-        result.putExtra("log_data", "Requested assistance.");
+        RadioGroup rg = (RadioGroup)findViewById(R.id.gender_selection_group);
+        int genderSelectionId = rg.getCheckedRadioButtonId();
+        RadioButton genderSelectionButton = (RadioButton)findViewById(genderSelectionId);
+        CharSequence value = genderSelectionButton.getText();
+        String gender = "unspecified";
+        if (value.equals("Male")) {
+            gender = "male";
+        } else if (value.equals("Female")) {
+            gender = "female";
+        }
+        result.putExtra("gender", gender);
+        result.putExtra("log_data", "Requested assistance by gender: " + gender + ".");
         setResult(RESULT_OK, result);
         finish();
     }

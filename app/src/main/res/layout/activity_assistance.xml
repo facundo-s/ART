@@ -15,10 +15,33 @@
         android:layout_height="wrap_content"
         android:text="Assistance"/>
     <Button
+        android:id="@+id/request_assistance_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/request_assistance"
         android:text="Request"
         android:onClick="load_done"/>
+    <RadioGroup
+        android:id="@+id/gender_selection_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/request_assistance_button">
+        <RadioButton
+            android:id="@+id/gender_select_male"
+            android:text="Male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/gender_select_female"
+            android:text="Female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/gender_select_unspecified"
+            android:text="Doesn't Matter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+    </RadioGroup>
 
 </RelativeLayout>
