@@ -6,9 +6,13 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 
@@ -50,6 +54,14 @@ public class ART extends AppCompatActivity {
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(connection.getInputStream());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                String result = "";
+                String line = null;
+                while ((line = reader.readLine()) != null)
+                {
+                    result += line + "\n";
+                }
+                JSONObject json = new JSONObject(result);
             } catch (Exception e) {
 
             } finally {

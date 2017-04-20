@@ -18,7 +18,7 @@
         <activity android:name=".Assistance" />
         <activity android:name=".Repair" />
         <activity android:name=".Transportation" />
-
+        <uses-permission android:name="android.permission.INTERNET" />
     </application>
 
 </manifest>
