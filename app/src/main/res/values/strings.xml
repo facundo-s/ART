@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ART</string>
+    <string-array name="repair_options">
+        <item>I don\'t know</item>
+        <item>Battery</item>
+        <item>Wheels</item>
+        <item>Foot rest</item>
+    </string-array>
 </resources>
