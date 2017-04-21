@@ -18,14 +18,14 @@
         android:id="@+id/request_assistance_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/request_assistance"
+        android:layout_below="@+id/assistance_options_layout"
         android:text="Request"
         android:onClick="load_done"/>
     <RadioGroup
         android:id="@+id/gender_selection_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/request_assistance_button">
+        android:layout_below="@+id/request_assistance">
         <RadioButton
             android:id="@+id/gender_select_male"
             android:text="Male"
@@ -53,7 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/what_u_want"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/assistance_options_layout">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,5 +65,36 @@
             android:layout_height="wrap_content"
             android:id="@+id/bathroom"
             android:text="Going to the bathroom" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/groceries"
+            android:text="Getting groceries" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emergency_errands"
+            android:text="Emergency errands" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/house_cleaning"
+            android:text="House cleaning" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/assistance_other"
+            android:text="Other" />
+        <TextView
+            android:id="@+id/other_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Specify what you need help with:"
+            android:visibility="gone" />
+        <EditText
+            android:id="@+id/assistance_other_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </LinearLayout>
 </RelativeLayout>
