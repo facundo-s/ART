@@ -19,6 +19,9 @@
         <activity android:name=".Repair" />
         <activity android:name=".Transportation" />
         <uses-permission android:name="android.permission.INTERNET" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDkiPp2RkkEgW7PbUPyz8P9WvcRn6N8Vl8" />
     </application>
 
 </manifest>
