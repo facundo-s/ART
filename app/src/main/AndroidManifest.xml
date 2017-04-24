@@ -21,7 +21,6 @@
         <uses-permission android:name="android.permission.INTERNET" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDkiPp2RkkEgW7PbUPyz8P9WvcRn6N8Vl8" />
+            android:value="AIzaSyDnYfYQkt7bzz-_j4NwEsJL7hEd2OZaKnI" />
     </application>
-
 </manifest>
