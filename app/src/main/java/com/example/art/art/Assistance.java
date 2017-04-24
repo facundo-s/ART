@@ -18,18 +18,15 @@ public class Assistance extends AppCompatActivity {
         setContentView(R.layout.activity_assistance);
 
         final CheckBox otherCheckBox = (CheckBox)findViewById(R.id.assistance_other);
-        final TextView otherTextView = (TextView)findViewById(R.id.other_text_view);
         final EditText otherTextInput = (EditText)findViewById(R.id.assistance_other_input);
         otherCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                if(otherCheckBox.isChecked()){
-                    otherTextView.setVisibility(View.VISIBLE);
+                if (otherCheckBox.isChecked()){
                     otherTextInput.setVisibility(View.VISIBLE);
-                }else{
-                    otherTextView.setVisibility(View.GONE);
-                    otherTextInput.setVisibility(View.GONE);
+                    otherTextInput.requestFocus();
+                } else {
+                    otherTextInput.setVisibility(View.INVISIBLE);
                 }
             }
         });

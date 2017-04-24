@@ -46,10 +46,12 @@ public class ART extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        addToLog(data.getCharSequenceExtra("log_data").toString());
-        View mainView = findViewById(R.id.activity_art);
-        Snackbar snackbar = Snackbar.make(mainView, "Request processed!", Snackbar.LENGTH_LONG);
-        snackbar.show();
+        if (data != null && data.getCharSequenceExtra("log_data") != null) {
+            addToLog(data.getCharSequenceExtra("log_data").toString());
+            View mainView = findViewById(R.id.activity_art);
+            Snackbar snackbar = Snackbar.make(mainView, "Request processed!", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
     }
 
     private void loadDatabase() {

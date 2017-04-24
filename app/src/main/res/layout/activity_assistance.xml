@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_assistance"
@@ -14,13 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Assistance"/>
-    <Button
-        android:id="@+id/request_assistance_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/assistance_options_layout"
-        android:text="Request"
-        android:onClick="load_done"/>
     <RadioGroup
         android:id="@+id/gender_selection_group"
         android:layout_width="wrap_content"
@@ -50,7 +47,7 @@
         android:layout_below="@+id/gender_selection_group"
         android:text="What do you need assistance with?" />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/what_u_want"
         android:orientation="vertical"
@@ -80,21 +77,50 @@
             android:layout_height="wrap_content"
             android:id="@+id/house_cleaning"
             android:text="House cleaning" />
-        <CheckBox
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/assistance_other"
-            android:text="Other" />
-        <TextView
-            android:id="@+id/other_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Specify what you need help with:"
-            android:visibility="gone" />
-        <EditText
-            android:id="@+id/assistance_other_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/assistance_other"
+                android:text="Other" />
+            <EditText
+                android:id="@+id/assistance_other_input"
+                android:layout_width="wrap_content"
+                android:minWidth="100dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+        </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/assistance_time_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/assistance_options_layout">
+        <DatePicker
+            android:id="@+id/assistance_date_picker"
+            android:layout_width="match_parent"
+            android:calendarViewShown="true"
+            android:spinnersShown="false"
+            android:layout_weight="4"
+            android:layout_height="0dp" />
+        <TimePicker
+            android:id="@+id/assistance_time_picker"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/request_assistance_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assistance_time_layout"
+        android:text="Request"
+        android:onClick="load_done"/>
 </RelativeLayout>
+</ScrollView>
+
