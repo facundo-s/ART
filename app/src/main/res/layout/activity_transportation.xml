@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_transportation"
     android:layout_width="match_parent"
@@ -8,28 +12,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.art.art.Transportation">
+    tools:context="com.example.art.art.Transportation"
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/request_transportation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transportation"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/transportation_from_layout"
-        android:orientation="horizontal"
-        android:layout_below="@+id/request_transportation">
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="From:" />
-        <fragment
+        <!--fragment
             android:id="@+id/place_autocomplete_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            />
+            /-->
         <EditText
             android:id="@+id/from_location_input"
             android:layout_width="wrap_content"
@@ -51,9 +53,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/transportation_to_layout"
-        android:orientation="horizontal"
-        android:layout_below="@+id/transportation_from_layout">
+        android:orientation="horizontal">
         <!--fragment
             android:id="@+id/place_autocomplete_fragment"
             android:layout_width="match_parent"
@@ -82,11 +82,58 @@
             android:text="Work"
             android:onClick="to_work_clicked" />
     </LinearLayout>
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/transportation_to_layout"
+        android:text="When do you want transportation?" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/transportation_time_now_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Now"
+            android:onClick="time_now_clicked" />
+        <Button
+            android:id="@+id/transportation_time_tomorrow_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tomrorow"
+            android:onClick="time_tomorrow_clicked" />
+        <Button
+            android:id="@+id/transportation_time_other_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:onClick="time_other_clicked" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/transportation_time_selection"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <DatePicker
+            android:id="@+id/transportation_date_picker"
+            android:layout_width="match_parent"
+            android:calendarViewShown="true"
+            android:spinnersShown="false"
+            android:layout_weight="4"
+            android:layout_height="0dp" />
+        <TimePicker
+            android:id="@+id/transportation_time_picker"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/request_transportation_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Request"
         android:onClick="load_done"/>
-
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>

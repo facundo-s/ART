@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_assistance"
     android:layout_width="match_parent"
@@ -12,7 +12,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.art.art.Assistance">
+    tools:context="com.example.art.art.Assistance"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/request_assistance"
         android:layout_width="wrap_content"
@@ -21,8 +22,7 @@
     <RadioGroup
         android:id="@+id/gender_selection_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/request_assistance">
+        android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/gender_select_male"
             android:text="Male"
@@ -41,17 +41,13 @@
             android:checked="true" />
     </RadioGroup>
     <TextView
-        android:id="@+id/what_u_want"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gender_selection_group"
         android:text="What do you need assistance with?" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/what_u_want"
-        android:orientation="vertical"
-        android:id="@+id/assistance_options_layout">
+        android:orientation="vertical">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,13 +90,40 @@
                 android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="When do you want assistance?" />
     <LinearLayout
-        android:id="@+id/assistance_time_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/assistance_time_now_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Now"
+            android:onClick="time_now_clicked" />
+        <Button
+            android:id="@+id/assistance_time_tomorrow_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tomrorow"
+            android:onClick="time_tomorrow_clicked" />
+        <Button
+            android:id="@+id/assistance_time_other_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:onClick="time_other_clicked" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/assistance_time_selection"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:padding="8dp"
         android:layout_height="match_parent"
-        android:layout_below="@+id/assistance_options_layout">
+        android:visibility="gone">
         <DatePicker
             android:id="@+id/assistance_date_picker"
             android:layout_width="match_parent"
@@ -116,11 +139,10 @@
     </LinearLayout>
     <Button
         android:id="@+id/request_assistance_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/assistance_time_layout"
         android:text="Request"
         android:onClick="load_done"/>
-</RelativeLayout>
+</LinearLayout>
 </ScrollView>
 
