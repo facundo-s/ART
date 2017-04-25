@@ -6,10 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TimePicker;
+
+import java.util.Date;
 
 import static android.view.View.GONE;
+import static com.example.art.art.Utils.setButtonState;
 
 public class Transportation extends AppCompatActivity {
 
@@ -37,11 +42,7 @@ public class Transportation extends AppCompatActivity {
         to_input.setText("Jacobs Hall");
     }
 
-    final int COLOR_BLUE = 0xff33b5e5,
-            COLOR_GREY = 0xFFD6D7D7;
-    private void setButtonState(Button btn, boolean highlight) {
-        btn.getBackground().setColorFilter(highlight ? COLOR_BLUE : COLOR_GREY, PorterDuff.Mode.MULTIPLY);
-    }
+    String timeOption;
     public void time_now_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.transportation_time_selection);
         Button nowBtn = (Button)findViewById(R.id.transportation_time_now_btn);
@@ -52,6 +53,8 @@ public class Transportation extends AppCompatActivity {
         setButtonState(tomorrowBtn, false);
         setButtonState(otherTimeBtn, false);
         timeSelector.setVisibility(GONE);
+
+        timeOption = "now";
     }
     public void time_tomorrow_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.transportation_time_selection);
@@ -63,6 +66,8 @@ public class Transportation extends AppCompatActivity {
         setButtonState(tomorrowBtn, true);
         setButtonState(otherTimeBtn, false);
         timeSelector.setVisibility(GONE);
+
+        timeOption = "tomorrow";
     }
     public void time_other_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.transportation_time_selection);
@@ -74,12 +79,28 @@ public class Transportation extends AppCompatActivity {
         setButtonState(tomorrowBtn, false);
         setButtonState(otherTimeBtn, true);
         timeSelector.setVisibility(View.VISIBLE);
+
+        timeOption = "other";
     }
 
     // TODO: add time and locations to log
     public void load_done(View view) {
+        Date requestDate;
+        if (timeOption.equals("now")) {
+            requestDate = new Date();
+        } else if (timeOption.equals("tomorrow")) {
+            requestDate = Utils.getTomorrow();
+        } else {
+            DatePicker datePicker = (DatePicker)findViewById(R.id.transportation_date_picker);
+            TimePicker timePicker = (TimePicker)findViewById(R.id.transportation_time_picker);
+            requestDate = Utils.getDate(datePicker, timePicker);
+        }
+
         Intent result = new Intent();
-        result.putExtra("log_data", "Requested transportation.");
+        result.putExtra("log_data", "Requested transportation from "
+                + "TODO" + " to "
+                + "TODO" + " on "
+                + Utils.formatDate(requestDate) + ".");
         setResult(RESULT_OK, result);
         finish();
     }

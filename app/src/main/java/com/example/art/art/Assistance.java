@@ -7,13 +7,22 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import static android.view.View.GONE;
+import static com.example.art.art.Utils.joinStr;
+import static com.example.art.art.Utils.setButtonState;
 
 public class Assistance extends AppCompatActivity {
 
@@ -38,11 +47,7 @@ public class Assistance extends AppCompatActivity {
         time_now_clicked(null);
     }
 
-    final int COLOR_BLUE = 0xff33b5e5,
-            COLOR_GREY = 0xFFD6D7D7;
-    private void setButtonState(Button btn, boolean highlight) {
-        btn.getBackground().setColorFilter(highlight ? COLOR_BLUE : COLOR_GREY, PorterDuff.Mode.MULTIPLY);
-    }
+    String timeOption;
     public void time_now_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.assistance_time_selection);
         Button nowBtn = (Button)findViewById(R.id.assistance_time_now_btn);
@@ -53,6 +58,8 @@ public class Assistance extends AppCompatActivity {
         setButtonState(tomorrowBtn, false);
         setButtonState(otherTimeBtn, false);
         timeSelector.setVisibility(GONE);
+
+        timeOption = "now";
     }
     public void time_tomorrow_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.assistance_time_selection);
@@ -64,6 +71,8 @@ public class Assistance extends AppCompatActivity {
         setButtonState(tomorrowBtn, true);
         setButtonState(otherTimeBtn, false);
         timeSelector.setVisibility(GONE);
+
+        timeOption = "tomorrow";
     }
     public void time_other_clicked(View view) {
         LinearLayout timeSelector = (LinearLayout)findViewById(R.id.assistance_time_selection);
@@ -75,6 +84,8 @@ public class Assistance extends AppCompatActivity {
         setButtonState(tomorrowBtn, false);
         setButtonState(otherTimeBtn, true);
         timeSelector.setVisibility(View.VISIBLE);
+
+        timeOption = "other";
     }
 
     // TODO: add time and what they need help with to log
@@ -85,6 +96,7 @@ public class Assistance extends AppCompatActivity {
 //        log.setText("sladffajsldh");
         //log.append("\n Assistance requested");
         Intent result = new Intent();
+
         RadioGroup rg = (RadioGroup)findViewById(R.id.gender_selection_group);
         int genderSelectionId = rg.getCheckedRadioButtonId();
         RadioButton genderSelectionButton = (RadioButton)findViewById(genderSelectionId);
@@ -95,8 +107,37 @@ public class Assistance extends AppCompatActivity {
         } else if (value.equals("Female")) {
             gender = "female";
         }
+
+        ArrayList<String> options = new ArrayList<>();
+        LinearLayout optionsLayout = (LinearLayout)findViewById(R.id.assistance_options_layout);
+        for (int i = 0; i < optionsLayout.getChildCount() - 1; i++) {
+            CheckBox option = (CheckBox)optionsLayout.getChildAt(i);
+            if (option.isChecked()) {
+                options.add(option.getText().toString());
+            }
+        }
+        CheckBox otherOptionCheckBox = (CheckBox)findViewById(R.id.assistance_other);
+        EditText otherOptionInput = (EditText)findViewById(R.id.assistance_other_input);
+        if (otherOptionCheckBox.isChecked()) {
+            options.add("Other(" + otherOptionInput.getText() + ")");
+        }
+
+        Date requestDate;
+        if (timeOption.equals("now")) {
+            requestDate = new Date();
+        } else if (timeOption.equals("tomorrow")) {
+            requestDate = Utils.getTomorrow();
+        } else {
+            DatePicker datePicker = (DatePicker)findViewById(R.id.assistance_date_picker);
+            TimePicker timePicker = (TimePicker)findViewById(R.id.assistance_time_picker);
+            requestDate = Utils.getDate(datePicker, timePicker);
+        }
+
         result.putExtra("gender", gender);
-        result.putExtra("log_data", "Requested assistance by gender: " + gender + ".");
+        result.putExtra("log_data", "Requested assistance with ("
+                + joinStr(options, ", ")
+                + ") by gender: " + gender + " on "
+                + Utils.formatDate(requestDate) + ".");
         setResult(RESULT_OK, result);
         finish();
     }

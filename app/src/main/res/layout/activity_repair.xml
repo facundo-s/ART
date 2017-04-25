@@ -24,13 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/request_repair_button"
         android:text="What's Broken?" />
-    <Spinner
-        android:id="@+id/repair_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/whats_broken_textview"
-        android:entries="@+array/repair_options" />
     <LinearLayout
+        android:id="@+id/repair_options_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
