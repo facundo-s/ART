@@ -106,8 +106,8 @@ public class Repair extends AppCompatActivity {
         } else if (timeOption.equals("tomorrow")) {
             requestDate = Utils.getTomorrow();
         } else {
-            DatePicker datePicker = (DatePicker)findViewById(R.id.transportation_date_picker);
-            TimePicker timePicker = (TimePicker)findViewById(R.id.transportation_time_picker);
+            DatePicker datePicker = (DatePicker)findViewById(R.id.repair_date_picker);
+            TimePicker timePicker = (TimePicker)findViewById(R.id.repair_time_picker);
             requestDate = Utils.getDate(datePicker, timePicker);
         }
 

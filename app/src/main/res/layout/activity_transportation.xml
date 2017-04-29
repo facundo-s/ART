@@ -26,17 +26,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="From:" />
-        <!--fragment
-            android:id="@+id/place_autocomplete_fragment"
+        <fragment
+            android:id="@+id/place_from_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            /-->
-        <EditText
+            />
+        <!--EditText
             android:id="@+id/from_location_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jacobs Hall"/>
+            android:text="Southside"/>
         <Button
             android:id="@+id/from_home_button"
             android:layout_width="wrap_content"
@@ -48,23 +48,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Work"
-            android:onClick="from_work_clicked" />
+            android:onClick="from_work_clicked" /-->
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <!--fragment
-            android:id="@+id/place_autocomplete_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            /-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="To:" />
-        <EditText
+        <fragment
+            android:id="@+id/place_to_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            />
+        <!--EditText
             android:id="@+id/to_location_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Work"
-            android:onClick="to_work_clicked" />
+            android:onClick="to_work_clicked" /-->
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -128,6 +128,16 @@
             android:layout_weight="4"
             android:layout_width="match_parent"
             android:layout_height="0dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="200dp">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
     <Button
         android:id="@+id/request_transportation_button"

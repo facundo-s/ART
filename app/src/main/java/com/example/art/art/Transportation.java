@@ -1,5 +1,6 @@
 package com.example.art.art;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
@@ -11,35 +12,108 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.Date;
 
 import static android.view.View.GONE;
 import static com.example.art.art.Utils.setButtonState;
 
-public class Transportation extends AppCompatActivity {
+public class Transportation extends AppCompatActivity implements OnMapReadyCallback {
+
+    private GoogleMap map;
+    private MarkerOptions fromMarker, toMarker;
+    private String fromStr, toStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transportation);
         time_now_clicked(null);
+
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        PlaceAutocompleteFragment fromAutocomplete = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_from_input);
+        fromAutocomplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                if (fromMarker == null)
+                    fromMarker = new MarkerOptions();
+                fromMarker.position(place.getLatLng());
+                fromStr = place.toString();
+                updateMap();
+            }
+            @Override
+            public void onError(Status status) {
+            }
+        });
+        PlaceAutocompleteFragment toAutocomplete = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_to_input);
+        toAutocomplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                if (toMarker == null)
+                    toMarker = new MarkerOptions();
+                toMarker.position(place.getLatLng());
+                toStr = place.toString();
+                updateMap();
+            }
+            @Override
+            public void onError(Status status) {
+            }
+        });
+    }
+
+    private void updateMap() {
+        if (map != null) {
+            map.clear();
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            if (fromMarker != null) {
+                builder.include(fromMarker.getPosition());
+                map.addMarker(new MarkerOptions().position(fromMarker.getPosition()));
+            }
+            if (toMarker != null) {
+                builder.include(toMarker.getPosition());
+                map.addMarker(new MarkerOptions().position(toMarker.getPosition()));
+            }
+            if (fromMarker != null || toMarker != null) {
+                LatLngBounds bounds = builder.build();
+                CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 30);
+                map.animateCamera(cu);
+                //map.setLatLngBoundsForCameraTarget(bounds);
+            }
+        }
     }
 
     public void from_home_clicked(View view) {
-        EditText from_input = (EditText)findViewById(R.id.from_location_input);
-        from_input.setText("Southside");
+//        EditText from_input = (EditText)findViewById(R.id.from_location_input);
+//        from_input.setText("Southside");
     }
     public void from_work_clicked(View view) {
-        EditText from_input = (EditText)findViewById(R.id.from_location_input);
-        from_input.setText("Jacobs Hall");
+//        EditText from_input = (EditText)findViewById(R.id.from_location_input);
+//        from_input.setText("Jacobs Hall");
     }
     public void to_home_clicked(View view) {
-        EditText to_input = (EditText)findViewById(R.id.to_location_input);
-        to_input.setText("Southside");
+//        EditText to_input = (EditText)findViewById(R.id.to_location_input);
+//        to_input.setText("Southside");
     }
     public void to_work_clicked(View view) {
-        EditText to_input = (EditText)findViewById(R.id.to_location_input);
-        to_input.setText("Jacobs Hall");
+//        EditText to_input = (EditText)findViewById(R.id.to_location_input);
+//        to_input.setText("Jacobs Hall");
     }
 
     String timeOption;
@@ -96,12 +170,20 @@ public class Transportation extends AppCompatActivity {
             requestDate = Utils.getDate(datePicker, timePicker);
         }
 
+//        EditText fromInput = (EditText)findViewById(R.id.from_location_input);
+//        EditText toInput = (EditText)findViewById(R.id.to_location_input);
+
         Intent result = new Intent();
         result.putExtra("log_data", "Requested transportation from "
-                + "TODO" + " to "
-                + "TODO" + " on "
-                + Utils.formatDate(requestDate) + ".");
+                + fromStr + " to "
+                + toStr
+                + " on " + Utils.formatDate(requestDate) + ".");
         setResult(RESULT_OK, result);
         finish();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.map = googleMap;
     }
 }
