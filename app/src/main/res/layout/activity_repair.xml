@@ -17,18 +17,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Repair"/>
+        android:text="Repair"
+        android:textSize="24dp"
+        android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/whats_broken_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/request_repair_button"
-        android:text="What's Broken?" />
+        android:text="What's Broken?"
+        android:textSize="18dp"/>
     <LinearLayout
         android:id="@+id/repair_options_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,11 +74,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="When do you want the repair?" />
+        android:text="When do you want the repair?"
+        android:textSize="18dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="5dp">
         <Button
             android:id="@+id/repair_time_now_btn"
             android:layout_width="wrap_content"
@@ -116,7 +124,7 @@
     <Button
         android:id="@+id/request_repair_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="Request"
         android:onClick="load_done"/>
 </LinearLayout>

@@ -17,7 +17,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transportation"/>
+        android:text="Transportation"
+        android:textSize="24dp"
+        android:layout_margin="10dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +27,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="From:" />
+            android:text="From:"
+            android:textSize="18dp"/>
         <fragment
             android:id="@+id/place_from_input"
             android:layout_width="wrap_content"
@@ -57,7 +60,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To:" />
+            android:text="To:"
+            android:textSize="18dp"/>
         <fragment
             android:id="@+id/place_to_input"
             android:layout_width="match_parent"
@@ -85,11 +89,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="When do you want transportation?" />
+        android:text="When do you want transportation?"
+        android:textSize="18dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
         <Button
             android:id="@+id/transportation_time_now_btn"
             android:layout_width="wrap_content"
@@ -132,7 +139,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="200dp">
+        android:minHeight="200dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:name="com.google.android.gms.maps.MapFragment"
             android:id="@+id/map"
@@ -142,7 +151,7 @@
     <Button
         android:id="@+id/request_transportation_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="Request"
         android:onClick="load_done"/>
 </LinearLayout>

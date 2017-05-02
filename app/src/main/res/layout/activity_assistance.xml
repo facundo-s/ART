@@ -15,14 +15,27 @@
     tools:context="com.example.art.art.Assistance"
     android:orientation="vertical">
     <TextView
+        android:id="@+id/assistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assistance"
+        android:textSize="24dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
         android:id="@+id/request_assistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Assistance"/>
+        android:text="Do you want a male or female attendant?"
+        android:textSize="18dp"/>
+
+
     <RadioGroup
         android:id="@+id/gender_selection_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
         <RadioButton
             android:id="@+id/gender_select_male"
             android:text="Male"
@@ -43,12 +56,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What do you need assistance with?" />
+        android:text="What do you need assistance with?"
+        android:textSize="18dp"/>
     <LinearLayout
         android:id="@+id/assistance_options_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,11 +110,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="When do you want assistance?" />
+        android:text="When do you want assistance?"
+        android:textSize="18dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="5dp">
         <Button
             android:id="@+id/assistance_time_now_btn"
             android:layout_width="wrap_content"
@@ -141,7 +160,7 @@
     <Button
         android:id="@+id/request_assistance_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="Request"
         android:onClick="load_done" />
 </LinearLayout>
