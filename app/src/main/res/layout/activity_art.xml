@@ -10,7 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.art.art.ART">
 
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome. What do you need help with?"
+        android:layout_margin="30dp"
+        android:textSize="24dp"/>
+
     <Button
+        android:layout_below="@id/welcome"
         android:id="@+id/assistance"
         android:layout_width="fill_parent"
         android:layout_height="100px"
@@ -28,7 +37,8 @@
         android:onClick="load_repair_activity"
         android:textSize="18dp"
         android:layout_margin="10dp"
-        android:drawableRight="@drawable/repair"/>
+        android:drawableRight="@drawable/repair"
+        />
     <Button
         android:id="@+id/transportation"
         android:layout_width="fill_parent"
