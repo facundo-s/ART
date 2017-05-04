@@ -22,14 +22,14 @@
         android:layout_below="@id/welcome"
         android:id="@+id/assistance"
         android:layout_width="fill_parent"
-        android:background="@color/buttonBackground"
+        android:background="@drawable/round_button"
         android:layout_height="150px"
         android:text="Assist"
         android:onClick="load_assist_activity"
         android:textSize="18dp"
         android:layout_margin="10dp"
         android:paddingRight="30dp"
-        android:drawableRight="@drawable/assistance"/>
+        android:drawableRight="@drawable/assistance" />
     <Button
         android:id="@+id/repair"
         android:layout_width="fill_parent"
