@@ -22,7 +22,7 @@
         android:layout_below="@id/welcome"
         android:id="@+id/assistance"
         android:layout_width="fill_parent"
-        android:background="@color/colorAccent"
+        android:background="@color/buttonBackground"
         android:layout_height="150px"
         android:text="Assist"
         android:onClick="load_assist_activity"
@@ -33,7 +33,7 @@
     <Button
         android:id="@+id/repair"
         android:layout_width="fill_parent"
-        android:background="@color/colorAccent"
+        android:background="@color/buttonBackground"
         android:layout_height="150px"
         android:layout_below="@+id/assistance"
         android:text="Repair"
@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/transportation"
         android:layout_width="fill_parent"
-        android:background="@color/colorAccent"
+        android:background="@color/buttonBackground"
         android:layout_height="150px"
         android:layout_below="@+id/repair"
         android:text="Transport"
