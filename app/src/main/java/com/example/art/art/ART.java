@@ -25,10 +25,10 @@ public class ART extends AppCompatActivity {
         setContentView(R.layout.activity_art);
     }
 
-    public void addToLog(String text) {
-        TextView t = (TextView)findViewById(R.id.log);
-        t.append(text + "\n");
-    }
+//    public void addToLog(String text) {
+//        TextView t = (TextView)findViewById(R.id.log);
+//        t.append(text + "\n");
+//    }
 
     public void load_assist_activity(View view) {
         Intent intent = new Intent(this, Assistance.class);
@@ -47,7 +47,7 @@ public class ART extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null && data.getCharSequenceExtra("log_data") != null) {
-            addToLog(data.getCharSequenceExtra("log_data").toString());
+//            addToLog(data.getCharSequenceExtra("log_data").toString());
             View mainView = findViewById(R.id.activity_art);
             Snackbar snackbar = Snackbar.make(mainView, "Request processed!", Snackbar.LENGTH_LONG);
             snackbar.show();

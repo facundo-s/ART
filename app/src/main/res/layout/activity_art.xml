@@ -22,56 +22,63 @@
         android:layout_below="@id/welcome"
         android:id="@+id/assistance"
         android:layout_width="fill_parent"
-        android:layout_height="100px"
+        android:background="@color/colorAccent"
+        android:layout_height="150px"
         android:text="Assist"
         android:onClick="load_assist_activity"
         android:textSize="18dp"
         android:layout_margin="10dp"
+        android:paddingRight="30dp"
         android:drawableRight="@drawable/assistance"/>
     <Button
         android:id="@+id/repair"
         android:layout_width="fill_parent"
-        android:layout_height="100px"
+        android:background="@color/colorAccent"
+        android:layout_height="150px"
         android:layout_below="@+id/assistance"
         android:text="Repair"
         android:onClick="load_repair_activity"
         android:textSize="18dp"
         android:layout_margin="10dp"
+        android:paddingRight="30dp"
         android:drawableRight="@drawable/repair"
         />
     <Button
         android:id="@+id/transportation"
         android:layout_width="fill_parent"
-        android:layout_height="100px"
+        android:background="@color/colorAccent"
+        android:layout_height="150px"
         android:layout_below="@+id/repair"
-        android:text="Transportation"
+        android:text="Transport"
         android:onClick="load_transportation_activity"
         android:textSize="18dp"
         android:layout_margin="10dp"
         android:layout_marginBottom="15dp"
-        android:drawableRight="@drawable/transport"/>
-
-    <TextView
-        android:id="@+id/log_banner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/transportation"
-        android:text="Log:"
-        android:background="@drawable/back"
-        android:textSize="25dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="15dp"/>
-
-    <TextView
-        android:id="@+id/log"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/log_banner"
-        android:text="\n"
-        android:background="@drawable/back"
-        android:textSize="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingRight="30dp"
+        android:drawableRight="@drawable/transport"
         />
+
+    <!--<TextView-->
+        <!--android:id="@+id/log_banner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/transportation"-->
+        <!--android:text="Log:"-->
+        <!--android:background="@drawable/back"-->
+        <!--android:textSize="25dp"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:paddingLeft="15dp"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/log"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/log_banner"-->
+        <!--android:text="\n"-->
+        <!--android:background="@drawable/back"-->
+        <!--android:textSize="18dp"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--/>-->
 </RelativeLayout>
