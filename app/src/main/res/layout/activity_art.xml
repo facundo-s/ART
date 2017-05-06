@@ -18,45 +18,161 @@
         android:layout_margin="30dp"
         android:textSize="24dp"/>
 
-    <Button
-        android:layout_below="@id/welcome"
-        android:id="@+id/assistance"
+    <!--<Button-->
+        <!--android:layout_below="@id/welcome"-->
+        <!--android:id="@+id/assistance"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@drawable/round_button"-->
+        <!--android:layout_height="150px"-->
+        <!--android:text="Assist"-->
+        <!--android:onClick="load_assist_activity"-->
+        <!--android:textSize="18dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:drawableRight="@drawable/assistance" />-->
+    <!--<Button-->
+        <!--android:id="@+id/repair"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@drawable/round_button"-->
+        <!--android:layout_height="150px"-->
+        <!--android:layout_below="@+id/assistance"-->
+        <!--android:text="Repair"-->
+        <!--android:onClick="load_repair_activity"-->
+        <!--android:textSize="18dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:paddingRight="30dp"-->
+        <!--android:drawableRight="@drawable/repair"-->
+        <!--/>-->
+    <!--<Button-->
+        <!--android:id="@+id/transportation"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@drawable/round_button"-->
+        <!--android:layout_height="150px"-->
+        <!--android:layout_below="@+id/repair"-->
+        <!--android:text="Transport"-->
+        <!--android:onClick="load_transportation_activity"-->
+        <!--android:textSize="18dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginBottom="15dp"-->
+        <!--android:paddingRight="30dp"-->
+        <!--android:drawableRight="@drawable/transport"-->
+        <!--/>-->
+
+    <LinearLayout android:id="@+id/assist"
+        android:layout_below="@+id/welcome"
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:background="@drawable/round_button"
-        android:layout_height="150px"
-        android:text="Assist"
+        android:layout_height="160dp"
         android:onClick="load_assist_activity"
-        android:textSize="18dp"
-        android:layout_margin="10dp"
-        android:paddingRight="30dp"
-        android:drawableRight="@drawable/assistance" />
-    <Button
-        android:id="@+id/repair"
-        android:layout_width="fill_parent"
-        android:background="@color/buttonBackground"
-        android:layout_height="150px"
-        android:layout_below="@+id/assistance"
-        android:text="Repair"
-        android:onClick="load_repair_activity"
-        android:textSize="18dp"
-        android:layout_margin="10dp"
-        android:paddingRight="30dp"
-        android:drawableRight="@drawable/repair"
-        />
-    <Button
-        android:id="@+id/transportation"
-        android:layout_width="fill_parent"
-        android:background="@color/buttonBackground"
-        android:layout_height="150px"
-        android:layout_below="@+id/repair"
-        android:text="Transport"
-        android:onClick="load_transportation_activity"
-        android:textSize="18dp"
         android:layout_margin="10dp"
         android:layout_marginBottom="15dp"
-        android:paddingRight="30dp"
-        android:drawableRight="@drawable/transport"
-        />
+        android:background="@drawable/shadow_111618"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Assist"
+            android:textSize="40dp"
+            android:background="@drawable/round_label"/>
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/round_image">
+
+            <!--Edit width and height below to change size of icons.-->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/assistance1"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/rep"
+        android:layout_below="@+id/assist"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:onClick="load_repair_activity"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shadow_111618"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Repair"
+            android:textSize="40dp"
+            android:background="@drawable/round_label"/>
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/round_image">
+
+            <!--Edit width and height below to change size of icons.-->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/repair"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/transport"
+        android:layout_below="@+id/rep"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:onClick="load_transportation_activity"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shadow_111618"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Transport"
+            android:textSize="40dp"
+            android:background="@drawable/round_label"/>
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/round_image">
+
+            <!--Edit width and height below to change size of icons.-->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/transport"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
     <!--<TextView-->
         <!--android:id="@+id/log_banner"-->
