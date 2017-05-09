@@ -16,6 +16,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
+import android.widget.RelativeLayout;
+import android.view.ViewGroup.LayoutParams;
+import android.graphics.Color;
+import android.graphics.Typeface;
 
 public class ART extends AppCompatActivity {
 
@@ -23,6 +28,43 @@ public class ART extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_art);
+        ActionBar ab = getSupportActionBar();
+
+        // Create a TextView programmatically.
+        TextView tv = new TextView(getApplicationContext());
+
+        // Create a LayoutParams for TextView
+        LayoutParams lp = new RelativeLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT, // Width of TextView
+                LayoutParams.WRAP_CONTENT); // Height of TextView
+
+
+        // Apply the layout parameters to TextView widget
+        tv.setLayoutParams(lp);
+
+        // Set text to display in TextView
+        tv.setText("A R T"); // ActionBar title text
+
+        // Set the text color of TextView to black
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize((float) 30);
+        tv.setTypeface(null, Typeface.BOLD);
+        tv.setGravity(1);
+        tv.setPadding(0,0,45,0);
+
+        // Set the monospace font for TextView text
+        // This will change ActionBar title text font
+        //tv.setTypeface(Typeface.MONOSPACE);
+
+        // Set the ActionBar display option
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        // Finally, set the newly created TextView as ActionBar custom view
+        ab.setCustomView(tv);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.button_menu);
+
     }
 
 //    public void addToLog(String text) {
