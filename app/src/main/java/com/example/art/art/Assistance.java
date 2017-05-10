@@ -1,10 +1,14 @@
 package com.example.art.art;
 
+import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -12,6 +16,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -45,6 +50,42 @@ public class Assistance extends AppCompatActivity {
             }
         });
         time_now_clicked(null);
+        ActionBar ab = getSupportActionBar();
+
+        // Create a TextView programmatically.
+        TextView tv = new TextView(getApplicationContext());
+
+        // Create a LayoutParams for TextView
+        ViewGroup.LayoutParams lp = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, // Width of TextView
+                ViewGroup.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+
+        // Apply the layout parameters to TextView widget
+        tv.setLayoutParams(lp);
+
+        // Set text to display in TextView
+        tv.setText("A R T"); // ActionBar title text
+
+        // Set the text color of TextView to black
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize((float) 30);
+        tv.setTypeface(null, Typeface.BOLD);
+        tv.setGravity(1);
+        tv.setPadding(0,0,45,0);
+
+        // Set the monospace font for TextView text
+        // This will change ActionBar title text font
+        //tv.setTypeface(Typeface.MONOSPACE);
+
+        // Set the ActionBar display option
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        // Finally, set the newly created TextView as ActionBar custom view
+        ab.setCustomView(tv);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.back_button);
     }
 
     String timeOption;
