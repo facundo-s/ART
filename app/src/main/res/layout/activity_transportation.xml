@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_transportation"
     android:layout_width="match_parent"
@@ -13,84 +13,51 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.art.art.Transportation"
-    android:orientation="vertical">
+    android:columnCount="2">
     <TextView
+        android:id="@+id/transportation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transportation"
-        android:textSize="24dp"
-        android:layout_margin="10dp"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="From:"
-            android:textSize="18dp"/>
-        <fragment
-            android:id="@+id/place_from_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            />
-        <!--EditText
-            android:id="@+id/from_location_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Southside"/>
-        <Button
-            android:id="@+id/from_home_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:onClick="from_home_clicked" />
-        <Button
-            android:id="@+id/from_work_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Work"
-            android:onClick="from_work_clicked" /-->
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="To:"
-            android:textSize="18dp"/>
-        <fragment
-            android:id="@+id/place_to_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            />
-        <!--EditText
-            android:id="@+id/to_location_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jacobs Hall"/>
-        <Button
-            android:id="@+id/to_home_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:onClick="to_home_clicked" />
-        <Button
-            android:id="@+id/to_work_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Work"
-            android:onClick="to_work_clicked" /-->
-    </LinearLayout>
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_row="0"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="When do you want transportation?"
-        android:textSize="18dp"/>
+        android:text="From:"
+        android:textSize="18dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="11dp"/>
+    <fragment
+        android:id="@+id/place_from_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To:"
+        android:textSize="18dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="11dp"/>
+    <fragment
+        android:id="@+id/place_to_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time:"
+        android:textSize="18dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -141,7 +108,8 @@
         android:layout_height="wrap_content"
         android:minHeight="200dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_columnSpan="2">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:name="com.google.android.gms.maps.MapFragment"
             android:id="@+id/map"
@@ -151,8 +119,9 @@
     <Button
         android:id="@+id/request_transportation_button"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:text="Request"
-        android:onClick="load_done"/>
-</LinearLayout>
+        android:onClick="load_done"
+        android:layout_columnSpan="2" />
+</GridLayout>
 </ScrollView>
