@@ -85,7 +85,7 @@ public class Assistance extends AppCompatActivity {
         ab.setCustomView(tv);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.button_menu);
+        getSupportActionBar().setIcon(R.drawable.back_button);
     }
 
     String timeOption;

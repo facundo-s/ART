@@ -117,7 +117,7 @@ public class Transportation extends AppCompatActivity implements OnMapReadyCallb
         ab.setCustomView(tv);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.button_menu);
+        getSupportActionBar().setIcon(R.drawable.back_button);
     }
 
     private void updateMap() {
