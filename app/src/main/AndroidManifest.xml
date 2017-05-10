@@ -17,9 +17,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Assistance" />
-        <activity android:name=".Repair" />
-        <activity android:name=".Transportation" />
+        <activity android:name=".Assistance"
+            android:parentActivityName="com.example.art.art.ART" />
+        <activity android:name=".Repair"
+            android:parentActivityName="com.example.art.art.ART" />
+        <activity android:name=".Transportation"
+            android:parentActivityName="com.example.art.art.ART" />
         <uses-permission android:name="android.permission.INTERNET" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
