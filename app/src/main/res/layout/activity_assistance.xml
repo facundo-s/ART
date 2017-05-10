@@ -19,16 +19,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Assistance"
-        android:textSize="40dp"
+        android:textSize="60dp"
         android:layout_margin="10dp"
         android:layout_marginLeft="0dp"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_row="0"/>
+        android:layout_row="0"
+        android:paddingLeft="20dp"
+        android:layout_marginBottom="15dp"/>
     <TextView
         android:id="@+id/request_assistance"
         android:text="Attendant Gender:"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:layout_column="0"
         android:layout_row="1"
         android:layout_marginTop="0dp"
@@ -45,25 +47,30 @@
             android:id="@+id/gender_select_male"
             android:text="Male"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp" />
         <RadioButton
             android:id="@+id/gender_select_female"
             android:text="Female"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp"/>
         <RadioButton
             android:id="@+id/gender_select_unspecified"
             android:text="Doesn't Matter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true" />
+            android:checked="true"
+            android:textSize="20dp" />
     </RadioGroup>
     <TextView
         android:id="@+id/what_u_need_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Assistance with:"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:layout_column="0"
         android:layout_row="2"
         android:layout_marginTop="3dp"
@@ -81,43 +88,57 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/out_of_bed"
-            android:text="Getting out of bed" />
+            android:text="Getting out of bed"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bathroom"
-            android:text="Going to the bathroom" />
+            android:text="Going to the bathroom"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/groceries"
-            android:text="Getting groceries" />
+            android:text="Getting groceries"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/emergency_errands"
-            android:text="Emergency errands" />
+            android:text="Emergency errands"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/house_cleaning"
-            android:text="House cleaning" />
+            android:text="House cleaning"
+            android:textSize="20dp"
+            android:layout_marginBottom="8dp" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="00dp">
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/assistance_other"
-                android:text="Other" />
+                android:text="Other"
+                android:layout_marginBottom="10dp"
+                android:textSize="20dp" />
             <EditText
                 android:id="@+id/assistance_other_input"
                 android:layout_width="wrap_content"
                 android:minWidth="100dp"
                 android:layout_height="match_parent"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:textSize="20dp"
+                android:paddingTop="3dp"/>
         </LinearLayout>
     </LinearLayout>
     <TextView
@@ -125,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time:"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:layout_column="0"
         android:layout_row="3"
         android:layout_gravity="left"
@@ -144,19 +165,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Now"
-            android:onClick="time_now_clicked" />
+            android:onClick="time_now_clicked"
+            android:textSize="20dp"
+            android:textAllCaps="false" />
         <Button
             android:id="@+id/assistance_time_tomorrow_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tomrorow"
-            android:onClick="time_tomorrow_clicked" />
+            android:text="Tomorrow"
+            android:onClick="time_tomorrow_clicked"
+            android:textSize="20dp"
+            android:textAllCaps="false"  />
         <Button
             android:id="@+id/assistance_time_other_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Other"
-            android:onClick="time_other_clicked" />
+            android:onClick="time_other_clicked"
+            android:textSize="20dp"
+            android:textAllCaps="false" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/assistance_time_selection"
@@ -183,13 +210,15 @@
     <Button
         android:id="@+id/request_assistance_button"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="Request"
         android:onClick="load_done"
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
-        android:layout_row="5"/>
+        android:layout_row="5"
+        android:textSize="40dp"
+        android:textAllCaps="false" />
 </GridLayout>
 </ScrollView>
 
