@@ -79,10 +79,10 @@ public class Assistance extends AppCompatActivity {
         //tv.setTypeface(Typeface.MONOSPACE);
 
         // Set the ActionBar display option
-        //ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
         // Finally, set the newly created TextView as ActionBar custom view
-        //ab.setCustomView(tv);
+        ab.setCustomView(tv);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
 

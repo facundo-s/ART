@@ -47,7 +47,7 @@ public class Repair extends AppCompatActivity {
             }
         });
         time_now_clicked(null);
-        //ActionBar ab = getSupportActionBar();
+        ActionBar ab = getSupportActionBar();
 
         // Create a TextView programmatically.
         TextView tv = new TextView(getApplicationContext());
@@ -76,10 +76,10 @@ public class Repair extends AppCompatActivity {
         //tv.setTypeface(Typeface.MONOSPACE);
 
         // Set the ActionBar display option
-        //ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
         // Finally, set the newly created TextView as ActionBar custom view
-        //ab.setCustomView(tv);
+        ab.setCustomView(tv);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setIcon(R.drawable.back_button);
